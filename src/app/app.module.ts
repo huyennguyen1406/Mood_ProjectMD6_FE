@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {authInterceptorProviders} from "./_helper/auth.interceptor";
+import { RePasswordComponent } from './re-password/re-password.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {authInterceptorProviders} from "./_helper/auth.interceptor";
     HomeComponent,
     LoginComponent,
     ProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    RePasswordComponent
   ],
   imports: [
     BrowserModule,

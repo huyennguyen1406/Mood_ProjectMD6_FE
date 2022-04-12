@@ -6,6 +6,7 @@ import {ProfileComponent} from "./profile/profile.component";
 import {RegisterComponent} from "./register/register.component";
 import {BoardUserComponent} from "./board-user/board-user.component";
 import {BoardAdminComponent} from "./board-admin/board-admin.component";
+import {RePasswordComponent} from "./re-password/re-password.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'admin', component: BoardAdminComponent },
+  { path: 'repass', component : RePasswordComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

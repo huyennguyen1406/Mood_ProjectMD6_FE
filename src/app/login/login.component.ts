@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
       },
-      err => {
+      () => {
         this.errorMessage = "Please try again !";
         this.isLoginFailed = true;
       }
