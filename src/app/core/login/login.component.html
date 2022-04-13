@@ -1,12 +1,12 @@
 <app-navbar-menu></app-navbar-menu>
 <form class="box" *ngIf="!isLoggedIn" name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
   <div class="form-group">
-    <label>Username</label>
+    <label>Tài khoản</label>
     <input type="text" class="form-control" name="username" [(ngModel)]="form.username"/>
   </div>
 
   <div class="form-group">
-    <label>Password</label>
+    <label>Mật khẩu</label>
     <input type="password" class="form-control" name="password" [(ngModel)]="form.password"/>
   </div>
   <br>
@@ -14,13 +14,13 @@
   <div class="form-group">
     <button id="button" class="btn btn-primary btn-block"
             type="submit">
-      Login
+      Đăng nhập
     </button>
   </div>
   <br>
 
   <div class="alert alert-danger" *ngIf="f.submitted && isLoginFailed">
-    Login failed: {{errorMessage}}
+    Đăng nhập thất bại: {{errorMessage}}
   </div>
 </form>
 

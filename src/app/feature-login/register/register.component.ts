@@ -26,28 +26,34 @@ export class RegisterComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
+  // tslint:disable-next-line:typedef
   get name(){
     // @ts-ignore
     return this.formRegister.get('name')
   }
+  // tslint:disable-next-line:typedef
   get address(){
     // @ts-ignore
     return this.formRegister.get('address')
   }
+  // tslint:disable-next-line:typedef
   get phone(){
     // @ts-ignore
     return this.formRegister.get('phone')
   }
+  // tslint:disable-next-line:typedef
   get username() {
     // @ts-ignore
     return this.formRegister.get('username');
   }
 
+  // tslint:disable-next-line:typedef
   get email() {
     // @ts-ignore
     return this.formRegister.get('email');
   }
 
+  // tslint:disable-next-line:typedef
   get password() {
     // @ts-ignore
     return this.formRegister.get('password');

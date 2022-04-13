@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {LoginService} from '../../service/login.service';
-import {Message} from '../../model/Message';
-import validate = WebAssembly.validate;
+
 
 declare var Swal: any;
 
@@ -22,6 +21,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
       email: ['', [Validators.required]],
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -32,6 +33,8 @@ export class RegisterComponent implements OnInit {
   register(){
     const user = {
       name: this.registerForm.value.name,
+      address: this.registerForm.value.address,
+      phone: this.registerForm.value.phone,
       email: this.registerForm.value.email,
       username: this.registerForm.value.username,
       password: this.registerForm.value.password
