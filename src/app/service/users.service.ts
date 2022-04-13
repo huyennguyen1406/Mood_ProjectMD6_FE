@@ -5,7 +5,7 @@ import {Users} from '../model/Users';
 import {environment} from '../../environments/environment';
 import {HttpService} from './http.service';
 import {Password} from '../model/Password';
-import {Song} from '../model/Song';
+
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -13,13 +13,11 @@ const API_URL = `${environment.apiUrl}`;
   providedIn: 'root'
 })
 export class UsersService {
-
   constructor(private http: HttpClient,
               private httpService: HttpService) { }
 
-  // tslint:disable-next-line:typedef
-  changePassword(data: Password): Observable<any> {
-    return this.http.post(API_URL + '/user/changepassword', data, this.httpService.getHttp());
+  changePassword(data: Password, idUser): Observable<any> {
+    return this.http.post(API_URL + '/home/user/changePassword/' + idUser, data, this.httpService.getHttp());
   }
 
   getUserById(id: string): Observable<Users> {

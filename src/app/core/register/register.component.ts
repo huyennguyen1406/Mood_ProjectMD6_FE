@@ -12,7 +12,6 @@ declare var Swal: any;
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
   registerForm: FormGroup;
   constructor(private fb: FormBuilder,
               private loginService: LoginService,

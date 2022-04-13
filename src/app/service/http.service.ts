@@ -6,13 +6,13 @@ import {HttpHeaders} from '@angular/common/http';
 })
 export class HttpService {
 
-  token = sessionStorage.getItem('token');
+  token = sessionStorage.getItem('auth-token');
   // tslint:disable-next-line:variable-name
   headers_object = new HttpHeaders().set('Authorization', 'Bearer' + this.token);
   httpOptions = {
     headers: this.headers_object
   };
-  id: string;
+  idUser: string;
 
   constructor() { }
 
@@ -27,6 +27,6 @@ export class HttpService {
 
   // tslint:disable-next-line:typedef
   getID(): string {
-    return this.id = sessionStorage.getItem('userId');
+    return this.idUser = sessionStorage.getItem('idUser');
   }
 }

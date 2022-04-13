@@ -2,45 +2,70 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UsersService} from '../../service/users.service';
 import {Router} from '@angular/router';
+import {TokenStorageService} from '../../securiy/_services/token-storage.service';
+import {ConfirmedValidator} from './confirmed.validators';
 declare var Swal: any;
 @Component({
   selector: 'app-password',
   templateUrl: './password.component.html',
   styleUrls: ['./password.component.css']
 })
-export class PasswordComponent implements OnInit {
-
-  passwordForm: FormGroup;
-  mess: string;
-
+export class PasswordComponent implements OnInit {changePasswordForm: FormGroup;
+  isRepassSuccessfully =  false;
+  isRepassedFailed = true;
+  errorMessage = '';
+  idUser?: number;
   constructor(private fb: FormBuilder,
               private userService: UsersService,
-              private router: Router) { }
+              private router: Router,
+              private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.passwordForm = this.fb.group({
-      oldpassword: ['', [Validators.required]],
-      newpassword: ['', [Validators.required]],
-      renewpassword: ['', [Validators.required]]
+    this.changePasswordForm = this.fb.group({
+      currentPassword: ['', [Validators.required]],
+      newPassword: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]]
+    }, {
+      validators: ConfirmedValidator('newPassword', 'confirmPassword')
     });
+    if (this.tokenStorage.getToken()){
+      this.idUser = this.tokenStorage.getUser().id;
+      console.log(this.idUser);
+    }
   }
 
   // tslint:disable-next-line:typedef
+  get currentPassword(){
+    // @ts-ignore
+    return this.changePasswordForm.get('currentPassword');
+  }
+  // tslint:disable-next-line:typedef
+  get newPassword(){
+    // @ts-ignore
+    return this.changePasswordForm.get('newPassword');
+  }
+  // tslint:disable-next-line:typedef
+  get confirmPassword(){
+    // @ts-ignore
+    return this.changePasswordForm.get('confirmPassword');
+  }
+  // tslint:disable-next-line:typedef
+  get f(){
+    return this.changePasswordForm.controls;
+  }
+  // tslint:disable-next-line:typedef
   changePassword(){
-    const data = {
-      password: this.passwordForm.value.oldpassword,
-      newpassword: this.passwordForm.value.newpassword
+    const changPasswordForm = {
+      currentPassword: this.changePasswordForm.value.currentPassword,
+      newPassword: this.changePasswordForm.value.newPassword,
+      confirmPassword: this.changePasswordForm.value.confirmPassword
     };
-    this.userService.changePassword(data).subscribe(res => {
-      Swal.fire({
-        title: res.message,
-        showConfirmButton: true,
-        timer: 3000
-      });
-      this.router.navigate(['/login']);
-      sessionStorage.removeItem('token');
-      sessionStorage.removeItem('userId');
-      sessionStorage.clear();
-    });
+    this.userService.changePassword(changPasswordForm, this.idUser).subscribe(
+      (data) => {
+        this.isRepassSuccessfully = true;
+        this.isRepassedFailed = false;
+        sessionStorage.clear();
+      }
+    );
   }
 }
