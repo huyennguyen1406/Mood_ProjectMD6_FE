@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../securiy/_services/auth.service';
-import {TokenStorageService} from "../securiy/_services/token-storage.service";
+import {AuthService} from '../../service/auth.service';
+import {TokenStorageService} from '../../securiy/_services/token-storage.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginCmponent implements OnInit {
   form: any = {
     username: null,
     password: null
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit {
         this.reloadPage();
       },
       err => {
-        this.errorMessage = "Please try again !";
+        this.errorMessage = 'Please try again !';
         this.isLoginFailed = true;
       }
     );
