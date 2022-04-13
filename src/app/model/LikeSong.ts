@@ -1,7 +1,7 @@
 import {Users} from './Users';
 import {Song} from './Song';
 
-export interface Likesong {
+export interface LikeSong {
   id?: number;
   status?: boolean;
   user?: Users;
