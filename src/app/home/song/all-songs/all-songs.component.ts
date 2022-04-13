@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Song} from '../../../model/Song';
 import {SongService} from '../../../service/song.service';
 import {LikesongService} from '../../../service/likesong.service';
-import {Likesong} from '../../../model/Likesong';
+import {LikeSong} from '../../../model/LikeSong';
 import {HttpService} from '../../../service/http.service';
 import {PlaylistService} from '../../../service/playlist.service';
 import {Playlist} from '../../../model/Playlist';
@@ -18,7 +18,7 @@ declare var Swal: any;
 export class AllSongsComponent implements OnInit {
 
   songList: Song[];
-  likesongs: Likesong[] = [];
+  likesongs: LikeSong[] = [];
   playlists: Playlist[];
   userId: number;
   status: boolean;

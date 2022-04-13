@@ -1,9 +1,9 @@
 import {Users} from './Users';
 import {Playlist} from './Playlist';
 
-export interface Likeplaylist {
+export interface CommentPlaylist {
   id?: number;
-  status?: boolean;
+  content?: string;
   user?: Users;
   playlist?: Playlist;
 }

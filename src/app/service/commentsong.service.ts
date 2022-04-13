@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {HttpService} from './http.service';
-import {Commentsong} from '../model/Commentsong';
+import {CommentSong} from '../model/CommentSong';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -19,7 +19,7 @@ export class CommentsongService {
     return this.http.get<any>(API_URL + '/home/commentsong/' + songid);
   }
 
-  updateCommentsong(commentsong: Commentsong): Observable<any> {
+  updateCommentsong(commentsong: CommentSong): Observable<any> {
     return this.http.post(API_URL + '/commentsong', commentsong, this.httpService.getHttp());
   }
 }

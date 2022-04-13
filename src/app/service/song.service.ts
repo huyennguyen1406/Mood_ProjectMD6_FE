@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Song} from '../model/Song';
 import {HttpService} from './http.service';
@@ -35,8 +35,9 @@ export class SongService {
     return this.http.get<Song[]>(API_URL + '/home/singer/' + singerid);
   }
 
-  getSongByName(name: string): Observable<Song[]> {
-    return this.http.post<Song[]>(API_URL + '/home/song/search' , name);
+  getSongByName(search: string): Observable<Song[]> {
+    let params = new HttpParams().set('search', search);
+    return this.http.get<Song[]>(API_URL + '/home/song/search' , {params});
   }
 
   getSongByLike(): Observable<Song[]> {

@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Song} from '../../../model/Song';
 import {SongService} from '../../../service/song.service';
 import {ActivatedRoute} from '@angular/router';
-import {Likesong} from '../../../model/Likesong';
+import {LikeSong} from '../../../model/LikeSong';
 import {Playlist} from '../../../model/Playlist';
-import {Commentsong} from '../../../model/Commentsong';
+import {CommentSong} from '../../../model/CommentSong';
 import {Users} from '../../../model/Users';
 import {UsersService} from '../../../service/users.service';
 import {LikesongService} from '../../../service/likesong.service';
@@ -20,8 +20,8 @@ declare var Amplitude: any;
 })
 export class PlaySongComponent implements OnInit {
   songList: Song[];
-  likesongs: Likesong[];
-  commentsong: Commentsong[];
+  likesongs: LikeSong[];
+  commentsong: CommentSong[];
   id: number;
   userId: number;
   song: Song;
@@ -58,8 +58,8 @@ export class PlaySongComponent implements OnInit {
       Amplitude.init({
         songs: [
           {
-            url: this.song.fileUrl,
-            cover_art_url: this.song.avatarUrl
+            url: this.song.mp3UrlSong,
+            cover_art_url: this.song.avatarUrlSong
           }
         ],
       });
@@ -76,8 +76,8 @@ export class PlaySongComponent implements OnInit {
       Amplitude.init({
         songs: [
           {
-            url: this.song.fileUrl,
-            cover_art_url: this.song.avatarUrl
+            url: this.song.mp3UrlSong,
+            cover_art_url: this.song.avatarUrlSong
           }
         ],
       });

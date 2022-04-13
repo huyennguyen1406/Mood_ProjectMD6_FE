@@ -1,9 +1,9 @@
 import {Users} from './Users';
 import {Song} from './Song';
 
-export interface Likesong {
+export interface CommentSong {
   id?: number;
-  status?: boolean;
+  content?: string;
   user?: Users;
   song?: Song;
 }

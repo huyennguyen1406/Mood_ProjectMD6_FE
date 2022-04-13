@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Likesong} from '../model/Likesong';
+import {LikeSong} from '../model/LikeSong';
 import {HttpService} from './http.service';
 
 const API_URL = `${environment.apiUrl}`;
@@ -19,7 +19,7 @@ export class LikesongService {
     return this.http.get<any>(API_URL + '/likesong', this.httpService.getHttp());
   }
 
-  updateLikesong(likesong: Likesong): Observable<any> {
+  updateLikesong(likesong: LikeSong): Observable<any> {
     return this.http.post(API_URL + '/likesong', likesong, this.httpService.getHttp());
   }
 }
