@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
       username: [''],
       password: ['']
     });
+    // tslint:disable-next-line:only-arrow-functions typedef
     (window as any).fbAsyncInit = function() {
       FB.init({
         appId      : '3471278576296648',
@@ -34,9 +35,10 @@ export class LoginComponent implements OnInit {
       FB.AppEvents.logPageView();
     };
 
+    // tslint:disable-next-line:only-arrow-functions typedef
     (function(d, s, id){
-      // tslint:disable-next-line:prefer-const
-      var js, fjs = d.getElementsByTagName(s)[0];
+      // tslint:disable-next-line:prefer-const one-variable-per-declaration
+      let js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {return; }
       js = d.createElement(s); js.id = id;
       js.src = 'https://connect.facebook.net/en_US/sdk.js';
@@ -48,21 +50,22 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:typedef
   loginFacebook() {
     FB.login((response) => {
-      //do something
+      // do something
       console.log(response);
 
       if (response != null && response.status === 'connected') {
         sessionStorage.setItem('token', JSON.stringify(response.authResponse.accessToken));
         FB.api(
-          "/" + response.authResponse.userID,
+          '/' + response.authResponse.userID,
           'GET',
-          {"fields":"picture, email"},
+          {fields: 'picture, email'},
           (res) => {
             console.log(res);
             sessionStorage.setItem('userId', JSON.stringify(res.id));
             this.router.navigate(['home']);
             if (res && !res.error) {
-              / handle the result /
+              // tslint:disable-next-line:no-unused-expression
+              / handle the result /;
             }
             console.log(res.id);
           }
