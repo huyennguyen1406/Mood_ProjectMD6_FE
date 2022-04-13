@@ -2,12 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {Song} from '../../../model/Song';
 import {SongService} from '../../../service/song.service';
 import {ActivatedRoute} from '@angular/router';
-import {Likesong} from '../../../model/Likesong';
+import {LikeSong} from '../../../model/LikeSong';
 import {Playlist} from '../../../model/Playlist';
 import {Commentsong} from '../../../model/Commentsong';
 import {Users} from '../../../model/Users';
 import {UsersService} from '../../../service/users.service';
-import {LikesongService} from '../../../service/likesong.service';
+import {LikeSongService} from '../../../service/likeSong.service';
 import {CommentsongService} from '../../../service/commentsong.service';
 import {HttpService} from '../../../service/http.service';
 import {PlaylistService} from '../../../service/playlist.service';
@@ -20,7 +20,7 @@ declare var Amplitude: any;
 })
 export class PlaySongComponent implements OnInit {
   songList: Song[];
-  likesongs: Likesong[];
+  likeSongs: LikeSong[];
   commentsong: Commentsong[];
   id: number;
   userId: number;
@@ -33,7 +33,7 @@ export class PlaySongComponent implements OnInit {
               private playlistService: PlaylistService,
               private router: ActivatedRoute,
               private userService: UsersService,
-              private likesongService: LikesongService,
+              private likeSongService: LikeSongService,
               private commentsongService: CommentsongService,
               private httpService: HttpService) {
   }
@@ -47,8 +47,8 @@ export class PlaySongComponent implements OnInit {
     this.songService.getSongByLike().subscribe(res => {
       this.songList = res;
     });
-    this.likesongService.getAllLikesong().subscribe(res => {
-      this.likesongs = res;
+    this.likeSongService.getAllLikeSong().subscribe(res => {
+      this.likeSongs = res;
     });
     this.userService.getUserById(this.httpService.getID()).subscribe(res => {
       this.user = res;
