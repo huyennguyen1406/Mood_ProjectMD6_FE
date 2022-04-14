@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UsersService} from '../../service/users.service';
 import {Router} from '@angular/router';
+// @ts-ignore
 import {TokenStorageService} from '../../securiy/_services/token-storage.service';
 import {ConfirmedValidator} from './confirmed.validators';
 declare var Swal: any;

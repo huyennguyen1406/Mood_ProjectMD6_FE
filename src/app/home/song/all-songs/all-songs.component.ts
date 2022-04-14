@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Song} from '../../../model/Song';
 import {SongService} from '../../../service/song.service';
 import {LikeSongService} from '../../../service/likeSong.service';
+// @ts-ignore
 import {LikeSong} from '../../../model/LikeSong';
 import {HttpService} from '../../../service/http.service';
 import {PlaylistService} from '../../../service/playlist.service';
