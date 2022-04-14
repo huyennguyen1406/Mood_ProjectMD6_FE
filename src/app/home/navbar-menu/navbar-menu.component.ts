@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class NavbarMenuComponent implements OnInit {
 
-  isLoggedIn: false;
+  isLoggedIn: boolean;
   searchForm: FormGroup;
 
   constructor(private songService: SongService,
@@ -24,6 +24,9 @@ export class NavbarMenuComponent implements OnInit {
       {
         nameSearch: ['']
       });
+    if (sessionStorage.getItem('auth-token')){
+      this.isLoggedIn = true;
+    }
   }
 
   // tslint:disable-next-line:typedef
@@ -32,7 +35,6 @@ export class NavbarMenuComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-
   changePage() {
     // @ts-ignore
     this.router.navigate(['/login'] );

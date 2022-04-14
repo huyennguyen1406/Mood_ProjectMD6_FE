@@ -62,10 +62,13 @@ export class PasswordComponent implements OnInit {changePasswordForm: FormGroup;
       newPassword: this.changePasswordForm.value.newPassword,
       confirmPassword: this.changePasswordForm.value.confirmPassword
     };
+    // @ts-ignore
     this.userService.changePassword(changPasswordForm, this.idUser).subscribe(
       (data) => {
+        console.log(data);
         this.isRepassSuccessfully = true;
         this.isRepassedFailed = false;
+        this.router.navigate(['/login']).then();
         sessionStorage.clear();
       }
     );

@@ -84,7 +84,7 @@ const routes: Routes = [
   {
     path: 'changePassword',
     component: PasswordComponent,
-    // canActivate: [AuthGuardGuard]
+    canActivate: [AuthGuardGuard]
   },
   {
     path: 'mysong',

@@ -9,7 +9,7 @@ export class HttpService {
 
   token = sessionStorage.getItem('auth-token');
   // tslint:disable-next-line:variable-name
-  headers_object = new HttpHeaders().set('Authorization', 'Bearer' + this.token);
+  headers_object = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
   httpOptions = {
     headers: this.headers_object
   };

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {LoginService} from '../../service/login.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../../service/auth.service';
 import {TokenStorageService} from '../../securiy/_services/token-storage.service';
@@ -43,7 +41,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.router.navigate(['']);
+        this.router.navigate(['/home']);
       },
       err => {
         this.errorMessage = 'Please try again !';
@@ -51,5 +49,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
 }
