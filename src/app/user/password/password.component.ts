@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {TokenStorageService} from '../../securiy/_services/token-storage.service';
 import {ConfirmedValidator} from './confirmed.validators';
 declare var Swal: any;
+// @ts-ignore
 @Component({
   selector: 'app-password',
   templateUrl: './password.component.html',

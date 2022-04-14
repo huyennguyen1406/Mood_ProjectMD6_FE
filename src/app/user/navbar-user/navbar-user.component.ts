@@ -4,22 +4,23 @@ import {Users} from '../../model/Users';
 import {UsersService} from '../../service/users.service';
 import {HttpService} from '../../service/http.service';
 
+// @ts-ignore
 @Component({
   selector: 'app-navbar-user',
   templateUrl: './navbar-user.component.html',
   styleUrls: ['./navbar-user.component.css']
 })
 export class NavbarUserComponent implements OnInit {
-  user: Users;
-  userid: string;
+  users: Users;
+  idUser: string;
   constructor(private route: Router,
               private userService: UsersService,
               private httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.userid = this.httpService.getID();
-    this.userService.getUserById(this.userid).subscribe(res => {
-      this.user = res;
+    this.idUser = this.httpService.getID();
+    this.userService.getUserById(this.idUser).subscribe(res => {
+      this.users = res;
     });
   }
 

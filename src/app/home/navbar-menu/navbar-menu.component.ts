@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {SongService} from '../../service/song.service';
 import {Router} from '@angular/router';
 
+// @ts-ignore
 @Component({
   selector: 'app-navbar-menu',
   templateUrl: './navbar-menu.component.html',
@@ -10,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class NavbarMenuComponent implements OnInit {
 
-
+  isLoggedIn: false;
   searchForm: FormGroup;
 
   constructor(private songService: SongService,
@@ -31,6 +32,7 @@ export class NavbarMenuComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
+
   changePage() {
     // @ts-ignore
     this.router.navigate(['/login'] );
