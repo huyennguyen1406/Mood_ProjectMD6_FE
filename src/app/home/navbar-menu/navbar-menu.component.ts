@@ -27,6 +27,6 @@ export class NavbarMenuComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   search() {
-    this.router.navigate(['/search'], { queryParams: { name: this.searchForm.value.nameSearch } });
+    this.router.navigate(['/search'], { queryParams: { search: this.searchForm.value.nameSearch } });
   }
 }

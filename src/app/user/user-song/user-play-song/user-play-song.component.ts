@@ -6,10 +6,10 @@ import {UsersService} from '../../../service/users.service';
 import {HttpService} from '../../../service/http.service';
 import {PlaylistService} from '../../../service/playlist.service';
 import {Playlist} from '../../../model/Playlist';
-import {Likesong} from '../../../model/Likesong';
+import {LikeSong} from '../../../model/LikeSong';
 import {LikesongService} from '../../../service/likesong.service';
 import {CommentsongService} from '../../../service/commentsong.service';
-import {Commentsong} from '../../../model/Commentsong';
+import {CommentSong} from '../../../model/CommentSong';
 import {Users} from '../../../model/Users';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
@@ -23,9 +23,9 @@ declare var Swal: any;
 })
 export class UserPlaySongComponent implements OnInit {
   songList: Song[];
-  likesongs: Likesong[];
+  likesongs: LikeSong[];
   playlists: Playlist[];
-  commentsong: Commentsong[];
+  commentsong: CommentSong[];
   id: number;
   song: Song;
   userId: number;

@@ -18,7 +18,8 @@ export class ListNewSongComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.songService.getAllSongsNew().subscribe(res => {
+    // Sửa thành getSongByLike()
+    this.songService.getAllSongs().subscribe(res => {
       this.songList = res;
       $(() => {
         const swiper = new Swiper('.carousel-gallery .swiper-container', {

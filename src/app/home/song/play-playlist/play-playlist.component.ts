@@ -3,7 +3,7 @@ import {Song} from '../../../model/Song';
 import {PlaylistService} from '../../../service/playlist.service';
 import {ActivatedRoute} from '@angular/router';
 import {Playlist} from '../../../model/Playlist';
-import {Commentplaylist} from '../../../model/Commentplaylist';
+import {CommentPlaylist} from '../../../model/CommentPlaylist';
 import {CommentplaylistService} from '../../../service/commentplaylist.service';
 declare var $: any;
 
@@ -16,7 +16,7 @@ export class PlayPlaylistComponent implements OnInit {
 
   id: number;
   songlist: Song[];
-  commentplaylist: Commentplaylist[];
+  commentplaylist: CommentPlaylist[];
   playlist: Playlist;
   p: number;
   page: number;

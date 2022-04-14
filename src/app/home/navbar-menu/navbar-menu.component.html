@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-light fixed-top amplitude-stop" id="mainNav">
   <div class="container">
     <a class="navbar-brand js-scroll-trigger" [routerLink]="['']">
@@ -6,7 +5,8 @@
         <i class="fas fa-circle fa-stack-2x"></i>
         <i class="fas fa-music fa-stack-1x fa-inverse fa-spin"></i>
       </span>
-       <div style="float: right; margin-top: 5px" >4KMusic</div></a>
+      <div style="float: right; margin-top: 5px">PASSIO</div>
+    </a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -16,8 +16,9 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li style="margin-top: 20px ; margin-right: 20px" class="nav-item">
-          <form class="form-inline" [formGroup]="searchForm"  (ngSubmit)="search()">
-            <input class="form-control mr-xl-2 " type="text" placeholder="Tìm kiếm" aria-label="Search" size="70" formControlName="nameSearch" >
+          <form class="form-inline" [formGroup]="searchForm" (ngSubmit)="search()">
+            <input class="form-control mr-xl-2 " type="text" placeholder="Tìm kiếm" aria-label="Search" size="70"
+                   formControlName="nameSearch">
           </form>
         </li>
         <li class="nav-item"><a class="nav-link js-scroll-trigger" [routerLink]="['/login']">Đăng nhập</a></li>

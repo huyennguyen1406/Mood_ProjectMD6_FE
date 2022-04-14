@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {HttpService} from './http.service';
 import {Observable} from 'rxjs';
 import {Song} from '../model/Song';
@@ -26,8 +26,9 @@ export class PlaylistService {
     return this.http.get<Playlist>(API_URL + '/home/playlist/' + id);
   }
 
-  getPlaylistByName(name: string): Observable<Playlist[]> {
-    return this.http.post<Playlist[]>(API_URL + '/home/playlist/search', name);
+  getPlaylistByName(search: string): Observable<Playlist[]> {
+    let params = new HttpParams().set('search', search);
+    return this.http.get<Playlist[]>(API_URL + '/home/playlist/search', {params});
   }
 
   getPlaylistByUser(userid: number): Observable<Playlist[]> {

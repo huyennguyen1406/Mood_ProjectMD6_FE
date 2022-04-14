@@ -2,11 +2,15 @@ import {Song} from './Song';
 import {Users} from './Users';
 
 export interface Playlist {
-  id?: number;
-  name?: string;
-  avatarUrl?: string;
-  dateCreated?: string;
-  countLike?: number;
-  songs?: Song[];
+
+  idPlaylist?: number;
+  namePlaylist?: string;
   user?: Users;
+  avatarPlaylistUrl?: string;
+  descriptionPlaylist?: string;
+  dateCreatePlaylist?: string;
+  lastModifierPlaylist?: string;
+  numberOfViewPlaylist?: number;
+  songs?: Song[];
+
 }
