@@ -29,4 +29,10 @@ export class NavbarMenuComponent implements OnInit {
   search() {
     this.router.navigate(['/search'], { queryParams: { search: this.searchForm.value.nameSearch } });
   }
+
+  // tslint:disable-next-line:typedef
+  changePage() {
+    // @ts-ignore
+    this.router.navigate(['/login'] );
+  }
 }

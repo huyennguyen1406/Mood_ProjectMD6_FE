@@ -14,10 +14,10 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(data): Observable<any> {
-    return this.http.post<any>(API_URL + '/api/auth/signin', data);
+    return this.http.post<any>(API_URL + '/api/auth/sign-in', data);
   }
 
   register(user: Users): Observable<any>{
-    return this.http.post<any>(API_URL + '/api/auth/signup', user);
+    return this.http.post<any>(API_URL + '/api/auth/sign-up', user);
   }
 }
