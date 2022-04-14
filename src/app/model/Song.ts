@@ -1,4 +1,4 @@
-import {Users} from './Users';
+import {User} from './User';
 import {Singers} from './Singers';
 import {Playlist} from './Playlist';
 import {Author} from "./Author";
@@ -12,7 +12,7 @@ export interface Song {
   mp3UrlSong?: string;
   avatarUrlSong?: string;
   author?: Author;
-  user?: Users;
+  user?: User;
 
   category?:Category;
   numberOfViewSong?: number;

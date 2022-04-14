@@ -1,11 +1,11 @@
 import {Song} from './Song';
-import {Users} from './Users';
+import {User} from './User';
 
 export interface Playlist {
 
   idPlaylist?: number;
   namePlaylist?: string;
-  user?: Users;
+  user?: User;
   avatarPlaylistUrl?: string;
   descriptionPlaylist?: string;
   dateCreatePlaylist?: string;

@@ -9,7 +9,7 @@ import {UsersService} from '../../service/users.service';
 import {HttpService} from '../../service/http.service';
 import {CommentplaylistService} from '../../service/commentplaylist.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {Users} from '../../model/Users';
+import {User} from '../../model/User';
 import {CommentPlaylist} from '../../model/CommentPlaylist';
 declare var $: any;
 @Component({
@@ -27,7 +27,7 @@ export class UserPlayPlaylistComponent implements OnInit {
   page: number;
   commentplaylist: CommentPlaylist[];
   form: FormGroup;
-  user: Users;
+  user: User;
   likeplaylist: LikePlaylist[];
   userId: number;
 

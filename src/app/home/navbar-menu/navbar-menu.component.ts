@@ -23,6 +23,7 @@ export class NavbarMenuComponent implements OnInit {
       {
         nameSearch: ['']
       });
+    window.sessionStorage.setItem("userId","1");
   }
 
   // tslint:disable-next-line:typedef

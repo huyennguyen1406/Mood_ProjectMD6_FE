@@ -1,9 +1,9 @@
-import {Users} from './Users';
+import {User} from './User';
 import {Song} from './Song';
 
 export interface CommentSong {
-  id?: number;
-  content?: string;
-  user?: Users;
-  song?: Song;
+  idCommentSong?: number;
+  contentComment?: string;
+  userCommentSong?: User;
+  songCommentSong?: Song;
 }

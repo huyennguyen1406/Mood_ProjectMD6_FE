@@ -1,9 +1,9 @@
-import {Users} from './Users';
+import {User} from './User';
 import {Playlist} from './Playlist';
 
 export interface LikePlaylist {
   idLikePlaylist?: number;
   // status?: boolean;
-  userLikeSong?: Users;
+  userLikeSong?: User;
   playlistLikeSong?: Playlist;
 }

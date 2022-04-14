@@ -19,7 +19,7 @@ export class PlaylistService {
   }
 
   getAllPlaylistsNew(): Observable<Playlist[]> {
-    return this.http.get<Playlist[]>(API_URL + '/home/playlist/new');
+    return this.http.get<Playlist[]>(API_URL + '/home/playlist/newest');
   }
 
   getPlaylistById(id: number): Observable<Playlist> {

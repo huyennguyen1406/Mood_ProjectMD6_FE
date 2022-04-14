@@ -7,7 +7,7 @@ import {HttpService} from '../../../service/http.service';
 import {PlaylistService} from '../../../service/playlist.service';
 import {Playlist} from '../../../model/Playlist';
 import {UsersService} from '../../../service/users.service';
-import {Users} from '../../../model/Users';
+import {User} from '../../../model/User';
 declare var Swal: any;
 
 @Component({
@@ -23,8 +23,9 @@ export class AllSongsComponent implements OnInit {
   userId: number;
   status: boolean;
   song: Song;
-  user: Users;
+  user: User;
   p: number;
+  url: string;
 
   constructor(private songService: SongService,
               private playlistService: PlaylistService,
@@ -36,6 +37,8 @@ export class AllSongsComponent implements OnInit {
   ngOnInit(): void {
     this.songService.getAllSongs().subscribe(res => {
       this.songList = res;
+
+      this.url = this.songList[0].avatarUrlSong;
       // tslint:disable-next-line:no-shadowed-variable
       this.playlistService.getPlaylistByUser(this.userId).subscribe(res => {
         this.playlists = res;

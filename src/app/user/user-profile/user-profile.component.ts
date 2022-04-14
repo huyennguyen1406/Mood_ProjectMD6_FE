@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UsersService} from '../../service/users.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpService} from '../../service/http.service';
-import {Users} from '../../model/Users';
+import {User} from '../../model/User';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
 import {Role} from '../../model/Role';
@@ -16,7 +16,7 @@ declare var Swal: any;
 export class UserProfileComponent implements OnInit {
 
   userForm: FormGroup;
-  user: Users;
+  user: User;
   userid: string;
   avaUrl: string;
   selectImg: any = null;

@@ -15,12 +15,17 @@ export class SongService {
   constructor(private http: HttpClient,
               private httpService: HttpService) {}
 
+  // Lấy toàn bộ bài hát
   getAllSongs(): Observable<Song[]> {
     return this.http.get<Song[]>(API_URL + '/home/song');
   }
 
   getAllSongsNew(): Observable<Song[]> {
     return this.http.get<Song[]>(API_URL + '/home/song/newest');
+  }
+
+  getAllSongsLikeMost(): Observable<Song[]> {
+    return this.http.get<Song[]> (API_URL + '/home/song/like-most')
   }
 
   getSongById(id: number): Observable<Song> {
@@ -41,7 +46,7 @@ export class SongService {
   }
 
   getSongByLike(): Observable<Song[]> {
-    return this.http.get<Song[]>(API_URL + '/home/song/like');
+    return this.http.get<Song[]>(API_URL + '/home/song/like-most');
   }
 
   createSong(song: Song): Observable<any> {

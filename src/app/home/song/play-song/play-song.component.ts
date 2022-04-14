@@ -5,12 +5,13 @@ import {ActivatedRoute} from '@angular/router';
 import {LikeSong} from '../../../model/LikeSong';
 import {Playlist} from '../../../model/Playlist';
 import {CommentSong} from '../../../model/CommentSong';
-import {Users} from '../../../model/Users';
+import {User} from '../../../model/User';
 import {UsersService} from '../../../service/users.service';
 import {LikesongService} from '../../../service/likesong.service';
 import {CommentsongService} from '../../../service/commentsong.service';
 import {HttpService} from '../../../service/http.service';
 import {PlaylistService} from '../../../service/playlist.service';
+
 declare var Amplitude: any;
 
 @Component({
@@ -20,14 +21,15 @@ declare var Amplitude: any;
 })
 export class PlaySongComponent implements OnInit {
   songList: Song[];
-  likesongs: LikeSong[];
-  commentsong: CommentSong[];
+  likeSongs: LikeSong[];
+  commentSong: CommentSong[];
   id: number;
   userId: number;
   song: Song;
-  user: Users;
+  user: User;
   p: number;
   page: number;
+  totalLike;
 
   constructor(private songService: SongService,
               private playlistService: PlaylistService,
@@ -41,18 +43,29 @@ export class PlaySongComponent implements OnInit {
   ngOnInit(): void {
     this.userId = Number(this.httpService.getID());
     this.id = Number(this.router.snapshot.paramMap.get('id'));
-    this.commentsongService.getCommentBySong(this.id).subscribe(res => {
-      this.commentsong = res;
+
+    // Lấy totalLike - DONE
+    this.likesongService.getTotalLike(this.id).subscribe(countLike => {
+      this.totalLike = countLike;
+    })
+
+    // Lấy comment của bài hát - DONE
+    this.commentsongService.getCommentBySong(this.id).subscribe(comments => {
+      this.commentSong = comments;
     });
+
+    // Lấy các bài hát bạn được like nhiều nhất -
     this.songService.getSongByLike().subscribe(res => {
       this.songList = res;
     });
-    this.likesongService.getAllLikesong().subscribe(res => {
-      this.likesongs = res;
-    });
+
+    // Lấy user - chưa biết để làm gì
     this.userService.getUserById(this.httpService.getID()).subscribe(res => {
       this.user = res;
+      console.log(this.user);
     });
+
+    // Lấy bài hát, dùng để chạy bài hát - DONE
     this.songService.getSongById(this.id).subscribe(res => {
       this.song = res;
       Amplitude.init({
@@ -66,11 +79,16 @@ export class PlaySongComponent implements OnInit {
     });
   }
 
-  // tslint:disable-next-line:typedef
+  // Đổi bài hát : dùng trong đoạn "Có thể bạn muốn nghe" - DONE
   changeSong(data) {
     this.commentsongService.getCommentBySong(data).subscribe(res => {
-      this.commentsong = res;
+      this.commentSong = res;
     });
+
+    this.likesongService.getTotalLike(data).subscribe(countLike => {
+      this.totalLike = countLike;
+    })
+
     this.songService.getSongById(data).subscribe(res => {
       this.song = res;
       Amplitude.init({

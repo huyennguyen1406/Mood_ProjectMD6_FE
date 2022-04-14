@@ -10,7 +10,7 @@ import {LikeSong} from '../../../model/LikeSong';
 import {LikesongService} from '../../../service/likesong.service';
 import {CommentsongService} from '../../../service/commentsong.service';
 import {CommentSong} from '../../../model/CommentSong';
-import {Users} from '../../../model/Users';
+import {User} from '../../../model/User';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 declare var Amplitude: any;
@@ -29,7 +29,7 @@ export class UserPlaySongComponent implements OnInit {
   id: number;
   song: Song;
   userId: number;
-  user: Users;
+  user: User;
   form: FormGroup;
   p: number;
 

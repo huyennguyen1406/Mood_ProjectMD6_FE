@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {Users} from '../../model/Users';
+import {User} from '../../model/User';
 import {UsersService} from '../../service/users.service';
 import {HttpService} from '../../service/http.service';
 
@@ -10,7 +10,7 @@ import {HttpService} from '../../service/http.service';
   styleUrls: ['./navbar-user.component.css']
 })
 export class NavbarUserComponent implements OnInit {
-  user: Users;
+  user: User;
   userid: string;
   constructor(private route: Router,
               private userService: UsersService,

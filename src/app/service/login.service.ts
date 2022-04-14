@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
-import {Users} from '../model/Users';
+import {User} from '../model/User';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -17,7 +17,7 @@ export class LoginService {
     return this.http.post<any>(API_URL + '/api/auth/signin', data);
   }
 
-  register(user: Users): Observable<any>{
+  register(user: User): Observable<any>{
     return this.http.post<any>(API_URL + '/api/auth/signup', user);
   }
 }
