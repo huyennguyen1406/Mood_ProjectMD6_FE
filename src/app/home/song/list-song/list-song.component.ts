@@ -20,7 +20,7 @@ export class ListSongComponent implements OnInit {
 
   ngOnInit(): void {
     // sửa thành getAllSongsNew()
-    this.songService.getAllSongs().subscribe(songs => {
+    this.songService.getAllSongsNew().subscribe(songs => {
       this.songList = songs;
       for (const i = 0; i < this.songList.length; ) {
         this.song1 = this.songList[i];

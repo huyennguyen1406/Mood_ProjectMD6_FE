@@ -20,7 +20,7 @@ export class SongService {
   }
 
   getAllSongsNew(): Observable<Song[]> {
-    return this.http.get<Song[]>(API_URL + '/home/song/new');
+    return this.http.get<Song[]>(API_URL + '/home/song/newest');
   }
 
   getSongById(id: number): Observable<Song> {
